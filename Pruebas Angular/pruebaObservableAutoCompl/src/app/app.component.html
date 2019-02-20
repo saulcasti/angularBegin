@@ -1,0 +1,13 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+
+  <input id="search-box" type="text" [placeholder]="text" [value]="text" > 
+
+  <ul>
+  <li *ngFor="let item of suggestion">{{item.title}}</li>
+  </ul>
+
+</div>

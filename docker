@@ -1,0 +1,12 @@
+* Lanzar una imagen sin guardarla:
+
+sudo docker run -v "/home/saul/Pruebas Angular/pruebaRouting/dist/pruebaRouting:/usr/share/nginx/html" -p 3000:80 nginx:alpine
+
+* Crear una imagen y luego lanzarla:
+
+hacen falta los archivos Dockerfile y nginx.conf
+
+
+sudo docker image build -t my-angular-app .
+
+sudo docker run -p 8083:80 --rm my-angular-app

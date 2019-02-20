@@ -1,0 +1,37 @@
+<p-messages [(value)]="msgs"></p-messages>
+
+
+
+<p-accordion [style]="{'margin-bottom':'20px'}">
+  <p-accordionTab header="Selected Item" [selected]="true">
+    <p>userId: {{item.userId}}</p>
+    <p>id: {{item.id}}</p>
+    <p>title: {{item.title}}</p>
+
+    <p>completed: <fa-icon [icon]="faCheckCircle" *ngIf="item.completed;else noCheck"></fa-icon>
+    </p>
+    <ng-template #noCheck>
+      <fa-icon [icon]="faTimesCircle"></fa-icon>
+    </ng-template>
+  </p-accordionTab>
+</p-accordion>
+
+
+<div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-md-4">
+        <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon">Title: </span>
+            <input type="text" pInputText [formControl]="titleEdit">        
+        </div>
+    </div>
+        <div class="ui-g-12 ui-md-4">
+            <div class="ui-inputgroup">
+                <span class="ui-inputgroup-addon">Completed: </span>                 
+                <span class="ui-inputgroup-addon"> <input type="checkbox" [formControl]="completedEdit">       </span>
+            </div>
+        </div>
+  </div>
+
+<div class="ui-g ui-fluid">
+  <button type="button" pButton (click)="editItem()" label="Edit" class="ui-button-success"></button>
+</div>

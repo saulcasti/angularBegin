@@ -1,0 +1,12 @@
+<div>
+  <h1 class="text-center">Prueba Angular</h1>
+  
+  
+  <label >Message:</label>
+  <input class="form-control"[(ngModel)]="message" placeholder="message">
+  
+  <button class="btn btn-outline-secondary btn-lg btn-block" (click)="select()">
+      Pulsar
+    </button>
+  <app-contador *ngIf="selected" [message]="message"></app-contador>
+</div>

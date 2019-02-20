@@ -1,0 +1,9 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  
+  <p-button class="click" label="Click" (onClick)="handleClick($event)" icon="pi pi-check" iconPos="right"></p-button>
+
+  <app-message *ngIf="selected" [message]="message"></app-message>

@@ -1,0 +1,43 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <p-button (click)="requestGET()" label="Click" ></p-button>
+
+ 
+
+  <p-accordion [style]="{'margin-top':'20px'}" *ngIf="itemSelected.id != -1">
+      <p-accordionTab header="Selected Item" [selected]="true">
+        <p>userId: {{itemSelected.userId}}</p>
+        <p>id: {{itemSelected.id}}</p>
+        <p>title: {{itemSelected.title}}</p>
+
+        <p>completed: <fa-icon [icon]="faCheckCircle"  *ngIf="itemSelected.completed;else noCheck"></fa-icon> </p>
+        <ng-template #noCheck> <fa-icon [icon]="faTimesCircle"></fa-icon> </ng-template>
+      </p-accordionTab>
+  </p-accordion>
+
+  <p-table [value]="jsonList" *ngIf="jsonList" [style]="{'margin-top':'20px'}">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>userId</th>
+            <th>id</th>
+            <th>title</th>
+            <th>completed</th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item>
+        <tr>
+            <td>{{item.userId}}</td>
+            <td>{{item.id}}</td>
+            <td>{{item.title}}</td>
+            <td> <fa-icon [icon]="faCheckCircle"  *ngIf="item.completed;else noCheck"></fa-icon> </td>
+            <ng-template #noCheck> <fa-icon [icon]="faTimesCircle"></fa-icon> </ng-template>
+            <td>
+              <button pButton type="button" label="Select" class="ui-button-rounded ui-button-info" (click)="selectOne(item)" [disabled]="itemSelected.id == item.id"></button>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>
